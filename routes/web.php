@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/backup-db', function () {
+	dispatch(new \App\Jobs\DatabaseBackupJob());
+	return redirect()->back();
+});
